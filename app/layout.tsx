@@ -1,4 +1,6 @@
-import './globals.css';
+// app/layout.tsx
+import '@/styles/globals.css'; // ✅ usa l’alias @ configurato in tsconfig
+// oppure: import '../styles/globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
