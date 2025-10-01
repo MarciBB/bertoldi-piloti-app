@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabaseServer';
 import { randomUUID } from 'crypto';
 
+export const runtime = 'nodejs';
 export async function POST(req: NextRequest) {
   const supabase = supabaseServer();
   const { data: { user } } = await supabase.auth.getUser();

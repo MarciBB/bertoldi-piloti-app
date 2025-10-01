@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabaseServer';
 
+export const runtime = 'nodejs';
 export async function POST(req: NextRequest) {
   const { email, password } = await req.json();
   const supabase = supabaseServer();

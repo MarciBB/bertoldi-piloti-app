@@ -1,6 +1,7 @@
 import BottomNav from '@/components/BottomNav';
 import { supabaseServer } from '@/lib/supabaseServer';
 
+export const dynamic = 'force-dynamic';
 export default async function Shifts() {
   const supabase = supabaseServer();
   const { data: items } = await supabase.from('shifts').select('*').order('week_start', { ascending: false }).limit(4);

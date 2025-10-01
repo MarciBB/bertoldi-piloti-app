@@ -4,6 +4,9 @@ import { stringify } from 'csv-stringify/sync';
 import archiver from 'archiver';
 import { PassThrough } from 'stream';
 
+export const runtime = 'nodejs';
+export const maxDuration = 60; // opzionale, se l’export cresce
+
 export async function GET(req: NextRequest) {
   const supabase = supabaseServer();
   const { data: { user } } = await supabase.auth.getUser();

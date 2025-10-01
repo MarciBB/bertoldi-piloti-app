@@ -3,6 +3,7 @@ import StepCard from '@/components/StepCard';
 import BottomNav from '@/components/BottomNav';
 import { revalidatePath } from 'next/cache';
 
+export const dynamic = 'force-dynamic';
 export default async function BoatPage() {
   const supabase = supabaseServer();
   const { data: templates } = await supabase

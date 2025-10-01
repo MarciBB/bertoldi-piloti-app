@@ -1,6 +1,7 @@
 import BottomNav from '@/components/BottomNav';
 import { supabaseServer } from '@/lib/supabaseServer';
 
+export const dynamic = 'force-dynamic';
 export default async function Dashboard() {
   const supabase = supabaseServer();
   const [{ data: news }] = await Promise.all([

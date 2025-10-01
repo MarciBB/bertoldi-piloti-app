@@ -1,6 +1,7 @@
 import BottomNav from '@/components/BottomNav';
 import { supabaseServer } from '@/lib/supabaseServer';
 
+export const dynamic = 'force-dynamic';
 export default async function Onboarding() {
   const supabase = supabaseServer();
   const { data: items } = await supabase.from('onboarding_items').select('*').order('created_at', { ascending: true });

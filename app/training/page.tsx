@@ -1,6 +1,7 @@
 import BottomNav from '@/components/BottomNav';
 import { supabaseServer } from '@/lib/supabaseServer';
 
+export const dynamic = 'force-dynamic';
 export default async function Training() {
   const supabase = supabaseServer();
   const { data: modules } = await supabase.from('training_modules').select('*').order('created_at', { ascending: true });
