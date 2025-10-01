@@ -9,13 +9,15 @@ export function middleware(req: NextRequest) {
   const pathname = url.pathname;
   const isProtected = protectedRoutes.some(r => pathname.startsWith(r));
 
-  // --- 👇 Log rapido ---
-  const cookies = req.cookies.getAll().map(c => `${c.name}=${c.value.slice(0,10)}...`);
-  console.log('[MW]', pathname, 'cookies:', cookies);
+  // Cerca cookie "sb-<projectRef>-auth-token"
+  const authCookie = req.cookies.getAll().find(c => c.name.startsWith('sb-') && c.name.endsWith('-auth-token'));
 
-  const token = req.cookies.get('sb-access-token');
-  if (isProtected && !token) {
-    console.warn('[MW] redirect → /login (manca sb-access-token) per', pathname);
+  console.log('[MW]', pathname, {
+    cookieNames: req.cookies.getAll().map(c => c.name),
+    authToken: authCookie ? 'PRESENTE' : 'ASSENTE'
+  });
+
+  if (isProtected && !authCookie) {
     url.pathname = '/login';
     return NextResponse.redirect(url);
   }
