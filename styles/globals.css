@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn{ @apply px-3 py-2 border rounded bg-gray-100; }
+.btn-primary{ @apply px-3 py-2 rounded bg-blue-600 text-white; }
